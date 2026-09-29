@@ -27,7 +27,7 @@ export default function Home(){
   useEffect(()=>{const introTimer=window.setTimeout(()=>setShowIntro(false),2400); const slideTimer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000); return()=>{window.clearTimeout(introTimer);window.clearInterval(slideTimer)}},[]);
   const previous=()=>setSlide(v=>(v-1+slides.length)%slides.length); const next=()=>setSlide(v=>(v+1)%slides.length);
   return <main>
-    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><img className="tap-intro-logo" src="/header-logo-symbol.png" alt="" /><TapWordmark/></div></div>}
+    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><div className="tap-intro-symbol"><span className="tap-intro-ring"/><img className="tap-intro-logo" src="/header-logo-symbol.png" alt="" /></div><div className="tap-intro-word"><TapWordmark/></div></div></div>}
     <header className="site-header">
       <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-icon" src="/header-logo-symbol.png" alt="" /><TapWordmark/></a>
       <nav className={menu?"desktop-nav mobile-open":"desktop-nav"}>
