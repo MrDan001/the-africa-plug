@@ -23,10 +23,11 @@ function UnderstandIcon(){return <svg viewBox="0 0 48 48" aria-hidden><circle cx
 function AccessIcon(){return <svg viewBox="0 0 48 48" aria-hidden><path d="M20 28 14 34a6 6 0 0 1-9-4 6 6 0 0 1 1-7l7-7a6 6 0 0 1 9 1" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/><path d="m28 20 6-6a6 6 0 0 1 9 4 6 6 0 0 1-1 6l-7 7a6 6 0 0 1-9-1" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/><path d="m16 24 16 0" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/></svg>}
 
 export default function Home(){
-  const [menu,setMenu]=useState(false); const [slide,setSlide]=useState(0); const current=slides[slide];
-  useEffect(()=>{const timer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000);return()=>window.clearInterval(timer)},[]);
+  const [menu,setMenu]=useState(false); const [showIntro,setShowIntro]=useState(true); const [slide,setSlide]=useState(0); const current=slides[slide];
+  useEffect(()=>{const introTimer=window.setTimeout(()=>setShowIntro(false),2400); const slideTimer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000); return()=>{window.clearTimeout(introTimer);window.clearInterval(slideTimer)}},[]);
   const previous=()=>setSlide(v=>(v-1+slides.length)%slides.length); const next=()=>setSlide(v=>(v+1)%slides.length);
   return <main>
+    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><span className="tap-intro-plug">↗</span><TapWordmark/></div></div>}
     <header className="site-header">
       <a className="site-brand" href="#top" aria-label="The Africa Plug home"><TapWordmark/></a>
       <nav className={menu?"desktop-nav mobile-open":"desktop-nav"}>
