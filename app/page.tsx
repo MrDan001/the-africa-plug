@@ -61,6 +61,27 @@ export default function Home(){
 
     <section className="closing" id="about"><div className="closing-mark"><TapWordmark/></div><div><span>AFRICA <b>→</b> WORLD</span><h2>Where the world<br/><em>plugs into Africa.</em></h2><p>Extraordinary things are happening across the continent. We show you what is worth knowing, how it works, where to experience it and, where relevant, how to access it.</p><a className="btn yellow" href="#discover">Start exploring <ArrowIcon/></a></div></section>
 
-    <footer><div className="footer-brand"><TapWordmark/><div><p>Your connection to Africa.</p></div></div><div className="footer-links"><a href="#discover">Discover</a><a href="#understand">Understand</a><a href="#access">Access</a><a href="#stories">Media</a><a href="#about">About</a></div><div className="footer-bottom"><span>KNOW AFRICA. &nbsp; ACCESS AFRICA. &nbsp; EXPERIENCE AFRICA.</span><small>© 2026 The Africa Plug</small></div></footer>
+    <footer>
+      <div className="footer-main">
+        <div className="footer-brand">
+          <div className="footer-brand-lockup">
+            <img className="footer-brand-icon" src="/header-logo-symbol.png" alt="" />
+            <TapWordmark/>
+          </div>
+          <p>Your connection to Africa.</p>
+        </div>
+        <nav className="footer-links" aria-label="Footer navigation">
+          <a href="#discover">Discover</a>
+          <a href="#understand">Understand</a>
+          <a href="#access">Access</a>
+          <a href="#stories">Media</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+      <div className="footer-bottom">
+        <span>KNOW AFRICA. &nbsp; ACCESS AFRICA. &nbsp; EXPERIENCE AFRICA.</span>
+        <small>© 2026 The Africa Plug</small>
+      </div>
+    </footer>
   </main>
 }
