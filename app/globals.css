@@ -455,3 +455,183 @@ footer{background:#040a0f}
 @media(max-width:560px){
   .closing-full-logo{width:145px;height:145px}
 }
+
+/* Final logo lockup: transparent globe/plug/Africa symbol with the wordmark placed beside it. */
+.brand-lockup{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  color:var(--white);
+}
+.brand-mark{
+  width:42px;
+  height:42px;
+  display:block;
+  flex:0 0 42px;
+  object-fit:contain;
+  object-position:center;
+}
+.brand-lockup .tap-wordmark{
+  flex:0 0 auto;
+}
+.site-brand .brand-lockup .tap-wordmark strong{
+  font-size:17px;
+}
+.site-brand .brand-lockup .tap-wordmark b{
+  font-size:7px;
+}
+.footer-brand-lockup .brand-lockup{
+  gap:12px;
+}
+.footer-brand-lockup .brand-mark{
+  width:72px;
+  height:72px;
+  flex-basis:72px;
+}
+.footer-brand .tap-wordmark strong{
+  font-size:22px;
+}
+.footer-brand .tap-wordmark b{
+  font-size:9px;
+}
+.closing-mark .brand-lockup{
+  gap:14px;
+  transform:scale(1.06);
+  transform-origin:left center;
+}
+.closing-mark .brand-mark{
+  width:90px;
+  height:90px;
+  flex-basis:90px;
+}
+.closing-mark .tap-wordmark strong{
+  font-size:24px;
+}
+.closing-mark .tap-wordmark b{
+  font-size:9px;
+}
+.intro-brand-lockup{
+  transform:scale(1.22);
+}
+.intro-brand-lockup .brand-mark{
+  width:104px;
+  height:104px;
+  flex-basis:104px;
+}
+.intro-brand-lockup .tap-wordmark{
+  gap:5px;
+}
+.intro-brand-lockup .tap-wordmark b{
+  font-size:14px;
+}
+.intro-brand-lockup .tap-wordmark strong{
+  font-size:42px;
+}
+@media(max-width:850px){
+  .site-brand .brand-mark{
+    width:35px;
+    height:35px;
+    flex-basis:35px;
+  }
+  .site-brand .brand-lockup{
+    gap:8px;
+  }
+  .site-brand .brand-lockup .tap-wordmark strong{
+    font-size:15px;
+  }
+  .site-brand .brand-lockup .tap-wordmark b{
+    font-size:6px;
+  }
+  .footer-brand-lockup .brand-mark{
+    width:58px;
+    height:58px;
+    flex-basis:58px;
+  }
+  .footer-brand .tap-wordmark strong{
+    font-size:18px;
+  }
+  .footer-brand .tap-wordmark b{
+    font-size:8px;
+  }
+  .closing-mark .brand-mark{
+    width:76px;
+    height:76px;
+    flex-basis:76px;
+  }
+  .closing-mark .tap-wordmark strong{
+    font-size:20px;
+  }
+  .closing-mark .tap-wordmark b{
+    font-size:8px;
+  }
+  .intro-brand-lockup{
+    transform:scale(1);
+  }
+  .intro-brand-lockup .brand-mark{
+    width:82px;
+    height:82px;
+    flex-basis:82px;
+  }
+  .intro-brand-lockup .tap-wordmark b{
+    font-size:11px;
+  }
+  .intro-brand-lockup .tap-wordmark strong{
+    font-size:34px;
+  }
+}
+@media(max-width:560px){
+  .site-brand .brand-mark{
+    width:32px;
+    height:32px;
+    flex-basis:32px;
+  }
+  .site-brand .brand-lockup{
+    gap:7px;
+  }
+  .site-brand .brand-lockup .tap-wordmark strong{
+    font-size:14px;
+  }
+  .site-brand .brand-lockup .tap-wordmark b{
+    font-size:5px;
+  }
+  .footer-brand-lockup .brand-mark{
+    width:74px;
+    height:74px;
+    flex-basis:74px;
+  }
+  .footer-brand .tap-wordmark strong{
+    font-size:17px;
+  }
+  .footer-brand .tap-wordmark b{
+    font-size:8px;
+  }
+  .closing-mark .brand-lockup{
+    transform:none;
+  }
+  .closing-mark .brand-mark{
+    width:68px;
+    height:68px;
+    flex-basis:68px;
+  }
+  .closing-mark .tap-wordmark strong{
+    font-size:18px;
+  }
+  .closing-mark .tap-wordmark b{
+    font-size:7px;
+  }
+  .intro-brand-lockup{
+    transform:none;
+  }
+  .intro-brand-lockup .brand-mark{
+    width:66px;
+    height:66px;
+    flex-basis:66px;
+  }
+  .intro-brand-lockup .tap-wordmark b{
+    font-size:9px;
+  }
+  .intro-brand-lockup .tap-wordmark strong{
+    font-size:26px;
+  }
+}
