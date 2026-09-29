@@ -57,7 +57,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1
     }
   },
-  icons: { icon: "/the-africa-plug-logo.svg" }
+  icons: { icon: "/the-africa-plug-mark.svg" }
 };
 
 export const viewport = {
