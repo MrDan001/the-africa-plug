@@ -48,7 +48,7 @@ export default function Home(){
         <div
           className="welcome-video-frame"
           onClick={(event)=>{
-            if(event.target !== event.currentTarget) return;
+            if(event.target !== event.currentTarget && !(event.target instanceof HTMLVideoElement)) return;
             const video=event.currentTarget.querySelector("video");
             if(!video) return;
             video.play().catch(()=>{});
