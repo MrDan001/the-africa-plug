@@ -27,9 +27,9 @@ export default function Home(){
   useEffect(()=>{const introTimer=window.setTimeout(()=>setShowIntro(false),2400); const slideTimer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000); return()=>{window.clearTimeout(introTimer);window.clearInterval(slideTimer)}},[]);
   const previous=()=>setSlide(v=>(v-1+slides.length)%slides.length); const next=()=>setSlide(v=>(v+1)%slides.length);
   return <main>
-    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><div className="tap-intro-symbol"><span className="tap-intro-ring"/><img className="tap-intro-logo" src="/header-logo-symbol.png" alt="" /></div><div className="tap-intro-word"><TapWordmark/></div></div></div>}
+    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><div className="tap-intro-symbol"><span className="tap-intro-ring"/><img className="tap-intro-logo" src="/header-logo-symbol.svg" alt="" /></div><div className="tap-intro-word"><TapWordmark/></div></div></div>}
     <header className="site-header">
-      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-icon" src="/header-logo-symbol.png" alt="" /><TapWordmark/></a>
+      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-icon" src="/header-logo-symbol.svg" alt="" /><TapWordmark/></a>
       <nav className={menu?"desktop-nav mobile-open":"desktop-nav"}>
         <a className="active" href="#top" onClick={()=>setMenu(false)}>Home</a><a href="#discover" onClick={()=>setMenu(false)}>Discover</a><a href="#business" onClick={()=>setMenu(false)}>Business &amp; Investment</a><a href="#travel" onClick={()=>setMenu(false)}>Travel &amp; Lifestyle</a><a href="#culture" onClick={()=>setMenu(false)}>Culture</a><a href="#stories" onClick={()=>setMenu(false)}>Media</a><a href="#about" onClick={()=>setMenu(false)}>About</a>
       </nav>
@@ -40,6 +40,25 @@ export default function Home(){
       <div className="hero-media" style={{backgroundImage:"url("+current.image+")"}}/><div className="hero-overlay"/>
       <div className="hero-content"><div className="hero-kicker">THE AFRICA PLUG</div><h1>{current.title}</h1><p className="hero-tagline">Business. Investment. Culture. Travel. Lifestyle. Opportunity.</p><p className="hero-copy">{current.copy}</p><div className="hero-buttons"><a className="btn yellow" href="#discover">Explore Africa <ArrowIcon/></a><a className="btn outline" href="#business">Work With FK <ArrowIcon/></a><a className="btn outline" href="#ask">Ask The Africa Plug <ArrowIcon/></a></div></div>
       <div className="hero-meta"><div><b>{current.location}</b><span>{current.category}</span></div><div className="hero-controls"><button onClick={previous} aria-label="Previous slide">‹</button><div>{slides.map((_,index)=><button key={index} className={index===slide?"dot active":"dot"} onClick={()=>setSlide(index)} aria-label={"Go to slide "+(index+1)}/>)}</div><button onClick={next} aria-label="Next slide">›</button></div></div>
+    </section>
+
+    <section className="welcome-section" id="welcome">
+      <div className="welcome-video-shell">
+        <div className="welcome-video-poster" role="img" aria-label="Welcome to The Africa Plug video placeholder">
+          <span className="welcome-video-badge">▶ WELCOME VIDEO</span>
+          <div className="welcome-play" aria-hidden="true">▶</div>
+          <span className="welcome-duration">05:00</span>
+        </div>
+      </div>
+      <div className="welcome-copy">
+        <div className="welcome-eyebrow"><span className="eyebrow-line"/>WELCOME TO THE AFRICA PLUG</div>
+        <h2>Welcome to<br/>The Africa Plug.</h2>
+        <p>Use this five-minute welcome video to introduce the platform, your mission, what visitors can discover here, and how The Africa Plug helps people connect with Africa.</p>
+        <p className="welcome-note">Video slot ready — replace this poster with your final welcome video when supplied.</p>
+        <div className="welcome-topics" aria-label="What you will find here">
+          <span>Business</span><span>Investment</span><span>Culture</span><span>Travel</span><span>Lifestyle</span><span>Opportunity</span>
+        </div>
+      </div>
     </section>
 
     <section className="worlds-section" id="discover">
@@ -65,7 +84,7 @@ export default function Home(){
       <div className="footer-main">
         <div className="footer-brand">
           <div className="footer-brand-lockup">
-            <img className="footer-brand-icon" src="/header-logo-symbol.png" alt="" />
+            <img className="footer-brand-icon" src="/header-logo-symbol.svg" alt="" />
             <TapWordmark/>
           </div>
           <p>Your connection to Africa.</p>
