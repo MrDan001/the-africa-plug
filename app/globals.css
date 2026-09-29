@@ -440,3 +440,18 @@ footer{background:#040a0f}
     height:min(82vw,380px);
   }
 }
+
+/* Use the exact supplied lockup wherever the brand mark appears. */
+.closing-full-logo{
+  width:180px;
+  height:180px;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+}
+@media(max-width:850px){
+  .closing-full-logo{width:165px;height:165px}
+}
+@media(max-width:560px){
+  .closing-full-logo{width:145px;height:145px}
+}
