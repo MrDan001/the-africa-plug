@@ -45,17 +45,23 @@ export default function Home(){
 
     <section className="welcome-section" id="welcome">
       <div className="welcome-video-shell">
-        <div className="welcome-video-poster" role="img" aria-label="Welcome to The Africa Plug video placeholder">
-          <span className="welcome-video-badge">▶ WELCOME VIDEO</span>
-          <div className="welcome-play" aria-hidden="true">▶</div>
-          <span className="welcome-duration">05:00</span>
+        <div className="welcome-video-frame">
+          <video
+            className="welcome-video"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            aria-label="Welcome video"
+          >
+            <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
       <div className="welcome-copy">
         <div className="welcome-eyebrow"><span className="eyebrow-line"/>WELCOME TO THE AFRICA PLUG</div>
         <h2>Welcome to<br/>The Africa Plug.</h2>
-        <p>Use this five-minute welcome video to introduce the platform, your mission, what visitors can discover here, and how The Africa Plug helps people connect with Africa.</p>
-        <p className="welcome-note">Video slot ready — replace this poster with your final welcome video when supplied.</p>
+        <p>Get a quick glimpse of the Africa Plug experience — the people, places, ideas and opportunities connecting Africa to the world.</p>
         <div className="welcome-topics" aria-label="What you will find here">
           <span>Business</span><span>Investment</span><span>Culture</span><span>Travel</span><span>Lifestyle</span><span>Opportunity</span>
         </div>
@@ -81,20 +87,37 @@ export default function Home(){
 
     <section className="closing" id="about"><div><span>AFRICA <b>→</b> WORLD</span><h2>Where the world<br/><em>plugs into Africa.</em></h2><p>Extraordinary things are happening across the continent. We show you what is worth knowing, how it works, where to experience it and, where relevant, how to access it.</p><a className="btn yellow" href="#discover">Start exploring <ArrowIcon/></a></div></section>
 
-    <footer>
-      <div className="footer-main">
-        <div className="footer-brand">
+    <footer className="site-footer">
+      <div className="footer-grid">
+        <div className="footer-brand-block">
           <div className="footer-brand-lockup"><BrandLockup/></div>
           <p>Your connection to Africa.</p>
+          <a className="footer-email" href="mailto:hello@theafricaplug.com">hello@theafricaplug.com</a>
         </div>
-        <nav className="footer-links" aria-label="Footer navigation">
+
+        <div className="footer-column">
+          <span className="footer-heading">EXPLORE</span>
           <a href="#discover">Discover</a>
           <a href="#understand">Understand</a>
           <a href="#access">Access</a>
           <a href="#stories">Media</a>
+        </div>
+
+        <div className="footer-column">
+          <span className="footer-heading">COMPANY</span>
           <a href="#about">About</a>
-        </nav>
+          <a href="#ask">Ask The Africa Plug</a>
+          <a href="#access">Work With FK</a>
+          <a href="#welcome">Welcome</a>
+        </div>
+
+        <div className="footer-column footer-contact">
+          <span className="footer-heading">THE AFRICA PLUG</span>
+          <p>Business. Investment. Culture. Travel. Lifestyle. Opportunity.</p>
+          <a className="footer-cta" href="#discover">Start exploring <ArrowIcon/></a>
+        </div>
       </div>
+
       <div className="footer-bottom">
         <span>KNOW AFRICA. &nbsp; ACCESS AFRICA. &nbsp; EXPERIENCE AFRICA.</span>
         <small>© 2026 The Africa Plug</small>
