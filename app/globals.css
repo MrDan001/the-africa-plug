@@ -651,6 +651,27 @@ footer{background:#040a0f}
   height:100%;
   display:block;
   object-fit:cover;
+  cursor:pointer;
+}
+.welcome-video-frame:focus-visible{
+  outline:2px solid #f6cf22;
+  outline-offset:3px;
+}
+.welcome-video-frame:fullscreen{
+  width:100vw;
+  height:100vh;
+  aspect-ratio:auto;
+  border:0;
+  border-radius:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.welcome-video-frame:fullscreen .welcome-video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 /* Closing section: center the content after the left-side logo was removed. */
