@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     locale: "en_NG",
     images: [
       {
-        url: "/header-logo-symbol.png",
-        width: 320,
-        height: 320,
+        url: "/the-africa-plug-logo.svg",
+        width: 1536,
+        height: 1536,
         alt: "The Africa Plug globe and plug logo"
       }
     ]
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/header-logo-symbol.png"]
+    images: ["/the-africa-plug-logo.svg"]
   },
   robots: {
     index: true,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1
     }
   },
-  icons: { icon: "/header-logo-symbol.png" }
+  icons: { icon: "/the-africa-plug-logo.svg" }
 };
 
 export const viewport = {
