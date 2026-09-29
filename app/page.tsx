@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 function TapWordmark({className=""}){return <span className={`tap-wordmark ${className}`} aria-hidden="true"><b>THE</b><strong>AFRICA <em>PLUG</em></strong></span>}
+function BrandLockup({className=""}){return <span className={`brand-lockup ${className}`}><img className="brand-mark" src="/the-africa-plug-mark.svg" alt="" /><TapWordmark/></span>}
 
 const slides = [
   { image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=88", location:"Lagos, Nigeria", category:"Business. Culture. Energy.", title:<>YOUR CONNECTION<br/><span>TO AFRICA.</span></>, copy:"Discover the businesses being built, markets moving, people to know, places to go, things to experience and opportunities worth knowing about." },
@@ -27,9 +28,9 @@ export default function Home(){
   useEffect(()=>{const introTimer=window.setTimeout(()=>setShowIntro(false),2400); const slideTimer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000); return()=>{window.clearTimeout(introTimer);window.clearInterval(slideTimer)}},[]);
   const previous=()=>setSlide(v=>(v-1+slides.length)%slides.length); const next=()=>setSlide(v=>(v+1)%slides.length);
   return <main>
-    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-full-logo"><img src="/the-africa-plug-logo.svg" alt="The Africa Plug" /></div></div>}
+    {showIntro && <div className="tap-intro" aria-hidden="true"><BrandLockup className="intro-brand-lockup"/></div>}
     <header className="site-header">
-      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-full-logo" src="/the-africa-plug-logo.svg" alt="The Africa Plug" /></a>
+      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><BrandLockup/></a>
       <nav className={menu?"desktop-nav mobile-open":"desktop-nav"}>
         <a className="active" href="#top" onClick={()=>setMenu(false)}>Home</a><a href="#discover" onClick={()=>setMenu(false)}>Discover</a><a href="#business" onClick={()=>setMenu(false)}>Business &amp; Investment</a><a href="#travel" onClick={()=>setMenu(false)}>Travel &amp; Lifestyle</a><a href="#culture" onClick={()=>setMenu(false)}>Culture</a><a href="#stories" onClick={()=>setMenu(false)}>Media</a><a href="#about" onClick={()=>setMenu(false)}>About</a>
       </nav>
@@ -78,14 +79,12 @@ export default function Home(){
 
     <section className="access-section" id="access"><div className="access-copy"><span className="eyebrow-line"/><p>WORK WITH FK</p><h2>When the opportunity is bigger than a question.</h2><span>Commercial navigation for companies, investors, founders and organisations exploring African markets.</span></div><div className="service-grid"><article><h3>Commercial Deal Consulting</h3><p>Market-entry navigation, opportunity identification, partner mapping, verification and commercial relationship development.</p><a href="mailto:hello@theafricaplug.com">Start a conversation <ArrowIcon/></a></article><article><h3>Market &amp; Opportunity Navigation</h3><p>Understand the market, the structure, the people and how an opportunity actually works locally before you move.</p><a href="mailto:hello@theafricaplug.com">Explore <ArrowIcon/></a></article><article><h3>Stay Finder</h3><p>Accommodation discovery built around how you actually need to use a city, not just how a hotel looks online.</p><a href="#stories">Coming into focus <ArrowIcon/></a></article></div></section>
 
-    <section className="closing" id="about"><div className="closing-mark"><img className="closing-full-logo" src="/the-africa-plug-logo.svg" alt="The Africa Plug" /></div><div><span>AFRICA <b>→</b> WORLD</span><h2>Where the world<br/><em>plugs into Africa.</em></h2><p>Extraordinary things are happening across the continent. We show you what is worth knowing, how it works, where to experience it and, where relevant, how to access it.</p><a className="btn yellow" href="#discover">Start exploring <ArrowIcon/></a></div></section>
+    <section className="closing" id="about"><div className="closing-mark"><BrandLockup/></div><div><span>AFRICA <b>→</b> WORLD</span><h2>Where the world<br/><em>plugs into Africa.</em></h2><p>Extraordinary things are happening across the continent. We show you what is worth knowing, how it works, where to experience it and, where relevant, how to access it.</p><a className="btn yellow" href="#discover">Start exploring <ArrowIcon/></a></div></section>
 
     <footer>
       <div className="footer-main">
         <div className="footer-brand">
-          <div className="footer-brand-lockup">
-            <img className="footer-brand-full-logo" src="/the-africa-plug-logo.svg" alt="The Africa Plug" />
-          </div>
+          <div className="footer-brand-lockup"><BrandLockup/></div>
           <p>Your connection to Africa.</p>
         </div>
         <nav className="footer-links" aria-label="Footer navigation">
