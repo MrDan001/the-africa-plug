@@ -45,16 +45,39 @@ export default function Home(){
 
     <section className="welcome-section" id="welcome">
       <div className="welcome-video-shell">
-        <div className="welcome-video-frame">
+        <div
+          className="welcome-video-frame"
+          onClick={(event)=>{
+            if(event.target !== event.currentTarget) return;
+            const video=event.currentTarget.querySelector("video");
+            if(!video) return;
+            video.play().catch(()=>{});
+            const element=event.currentTarget;
+            if(element.requestFullscreen) element.requestFullscreen().catch(()=>{});
+            else if(video.requestFullscreen) video.requestFullscreen().catch(()=>{});
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Play welcome video fullscreen"
+          onKeyDown={(event)=>{
+            if(event.key==="Enter" || event.key===" "){
+              event.preventDefault();
+              event.currentTarget.click();
+            }
+          }}
+        >
           <video
             className="welcome-video"
             autoPlay
             muted
             playsInline
-            preload="auto"
+            controls
+            preload="metadata"
             aria-label="Welcome video"
+            onCanPlay={(event)=>{ event.currentTarget.play().catch(()=>{}); }}
           >
-            <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
           </video>
         </div>
       </div>
