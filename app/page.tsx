@@ -27,9 +27,9 @@ export default function Home(){
   useEffect(()=>{const introTimer=window.setTimeout(()=>setShowIntro(false),2400); const slideTimer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000); return()=>{window.clearTimeout(introTimer);window.clearInterval(slideTimer)}},[]);
   const previous=()=>setSlide(v=>(v-1+slides.length)%slides.length); const next=()=>setSlide(v=>(v+1)%slides.length);
   return <main>
-    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><img className="tap-intro-logo" src="/favicon.svg" alt="" /><TapWordmark/></div></div>}
+    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><img className="tap-intro-logo" src="/header-logo-symbol.png" alt="" /><TapWordmark/></div></div>}
     <header className="site-header">
-      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-icon" src="/favicon.svg" alt="" /><TapWordmark/></a>
+      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-icon" src="/header-logo-symbol.png" alt="" /><TapWordmark/></a>
       <nav className={menu?"desktop-nav mobile-open":"desktop-nav"}>
         <a className="active" href="#top" onClick={()=>setMenu(false)}>Home</a><a href="#discover" onClick={()=>setMenu(false)}>Discover</a><a href="#business" onClick={()=>setMenu(false)}>Business &amp; Investment</a><a href="#travel" onClick={()=>setMenu(false)}>Travel &amp; Lifestyle</a><a href="#culture" onClick={()=>setMenu(false)}>Culture</a><a href="#stories" onClick={()=>setMenu(false)}>Media</a><a href="#about" onClick={()=>setMenu(false)}>About</a>
       </nav>
