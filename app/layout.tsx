@@ -57,7 +57,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1
     }
   },
-  icons: { icon: "/header-logo-symbol.svg" }
+  icons: { icon: "/header-logo-symbol.png" }
 };
 
 export const viewport = {
