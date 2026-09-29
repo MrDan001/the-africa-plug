@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="The Africa Plug">
+<rect width="1000" height="1000" fill="#000"/>
+<g transform="translate(0,-8)">
+<circle cx="500" cy="300" r="235" fill="none" stroke="#fff" stroke-width="10"/>
+<path d="M285 205 Q500 285 715 205 M285 395 Q500 315 715 395" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+<path d="M500 65 Q405 155 405 300 Q405 445 500 535 M500 65 Q595 155 595 300 Q595 445 500 535" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+<path d="M500 67 V180 M500 420 V533" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+<path d="M500 304
+c-18-2-32 2-44 11
+c-12 9-22 22-29 36
+l-34 0
+c-8 0-15 7-15 15
+c0 8 7 15 15 15
+l-45 0
+c-8 0-15 7-15 15
+c0 8 7 15 15 15
+l45 0
+c-8 0-15 7-15 15
+c0 8 7 15 15 15
+l37 0
+c7 16 17 29 31 38
+c13 9 28 13 44 13
+c0-30 0-59 0-88
+c0-29 0-59 0-90z" fill="#f5036a"/>
+<path d="M407 381 H235" fill="none" stroke="#f5036a" stroke-width="28" stroke-linecap="round"/>
+<path d="M500 304
+c34-9 68 4 90 20
+c23 16 39 37 52 59
+c20 2 43 8 61 20
+c15 10 25 22 34 36
+c-8 4-18 7-28 9
+c-3 16-9 31-18 45
+c-8 13-18 25-30 35
+c-5 20-12 39-22 56
+c-13 23-28 43-47 60
+c-11-3-21-8-29-15
+c-13-10-23-24-31-40
+c-10-20-15-42-15-65
+c-17-14-27-31-31-51
+c-4-22 0-45 14-64z" fill="#f5036a"/>
+<path d="M625 500c15 7 26 18 31 31c5 13 3 29-5 44c-7 12-15 22-25 30c-8 7-15 15-18 25c-3-12-1-24 4-36c6-13 15-25 24-35c9-10 14-21 13-33c-1-10-9-20-24-26z" fill="#f5036a"/>
+</g>
+<text x="250" y="635" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="2">THE</text>
+<text x="245" y="765" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="900" letter-spacing="-5">AFRICA</text>
+<text x="245" y="880" fill="#f5036a" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="900" letter-spacing="-5">PLUG</text>
+</svg>
