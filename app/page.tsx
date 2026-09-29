@@ -27,9 +27,9 @@ export default function Home(){
   useEffect(()=>{const introTimer=window.setTimeout(()=>setShowIntro(false),2400); const slideTimer=window.setInterval(()=>setSlide(v=>(v+1)%slides.length),7000); return()=>{window.clearTimeout(introTimer);window.clearInterval(slideTimer)}},[]);
   const previous=()=>setSlide(v=>(v-1+slides.length)%slides.length); const next=()=>setSlide(v=>(v+1)%slides.length);
   return <main>
-    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-mark"><div className="tap-intro-symbol"><img className="tap-intro-logo" src="/header-logo-symbol.svg" alt="" /></div><div className="tap-intro-word"><TapWordmark/></div></div></div>}
+    {showIntro && <div className="tap-intro" aria-hidden="true"><div className="tap-intro-full-logo"><img src="/the-africa-plug-logo.svg" alt="The Africa Plug" /></div></div>}
     <header className="site-header">
-      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-icon" src="/header-logo-symbol.svg" alt="" /><TapWordmark/></a>
+      <a className="site-brand" href="#top" aria-label="The Africa Plug home"><img className="site-brand-full-logo" src="/the-africa-plug-logo.svg" alt="The Africa Plug" /></a>
       <nav className={menu?"desktop-nav mobile-open":"desktop-nav"}>
         <a className="active" href="#top" onClick={()=>setMenu(false)}>Home</a><a href="#discover" onClick={()=>setMenu(false)}>Discover</a><a href="#business" onClick={()=>setMenu(false)}>Business &amp; Investment</a><a href="#travel" onClick={()=>setMenu(false)}>Travel &amp; Lifestyle</a><a href="#culture" onClick={()=>setMenu(false)}>Culture</a><a href="#stories" onClick={()=>setMenu(false)}>Media</a><a href="#about" onClick={()=>setMenu(false)}>About</a>
       </nav>
@@ -84,7 +84,7 @@ export default function Home(){
       <div className="footer-main">
         <div className="footer-brand">
           <div className="footer-brand-lockup">
-            <img className="footer-brand-icon" src="/header-logo-symbol.svg" alt="" />
+            <img className="footer-brand-icon" src="/the-africa-plug-mark.svg" alt="" />
             <TapWordmark/>
           </div>
           <p>Your connection to Africa.</p>
