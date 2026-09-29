@@ -2,7 +2,7 @@
 :root{--ink:#071017;--ink-2:#0b141c;--paper:#09121a;--white:#f5f7f7;--muted:#aeb7bc;--line:rgba(255,255,255,.18);--yellow:#f4cc2d;--pink:#f5036a}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--white);font-family:"DM Sans",sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}button{font:inherit;color:inherit}button,a{outline-offset:4px}
 .site-header{height:74px;position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;padding:0 4.2vw;background:rgba(5,11,16,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
-.site-brand{display:flex;align-items:center;gap:10px;min-width:245px}.site-brand-icon{width:28px;height:28px;display:block;flex:none}.tap-wordmark{display:flex;flex-direction:column;gap:2px;line-height:1}.tap-wordmark b{font:800 8px/1 Manrope;letter-spacing:.12em}.tap-wordmark strong{font:800 19px/1 Manrope;letter-spacing:-.06em}.tap-wordmark em{font-style:normal;color:var(--yellow)}
+.site-brand{display:flex;align-items:center;gap:10px;min-width:245px}.site-brand-icon{width:28px;height:28px;display:block;flex:none}.tap-wordmark{display:flex;flex-direction:column;gap:2px;line-height:1}.tap-wordmark b{font:800 8px/1 Manrope;letter-spacing:.12em}.tap-wordmark strong{font:800 19px/1 Manrope;letter-spacing:-.06em}.tap-wordmark em{font-style:normal;color:var(--pink)}
 .desktop-nav{display:flex;gap:27px;align-items:center;justify-content:center;flex:1;font-size:12px;color:#d9dddf}.desktop-nav a{position:relative;padding:28px 0}.desktop-nav a.active,.desktop-nav a:hover{color:#fff}.desktop-nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--yellow)}
 .header-actions{display:flex;align-items:center;gap:18px;margin-left:auto}.icon-button,.menu-button{border:0;background:none;width:30px;height:30px;padding:0;display:grid;place-items:center;cursor:pointer}.search-dot{width:15px;height:15px;border:2px solid #fff;border-radius:50%;position:relative}.search-dot:after{content:"";position:absolute;width:7px;height:2px;background:#fff;right:-5px;bottom:-3px;transform:rotate(48deg)}.menu-button{gap:4px}.menu-button span{display:block;width:18px;height:1.5px;background:#fff}
 .hero{height:min(760px,100vh);min-height:650px;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:0 4.2vw 56px}.hero-media,.hero-overlay{position:absolute;inset:0}.hero-media{background-position:center;background-size:cover;transition:background-image .65s ease}.hero-overlay{background:linear-gradient(90deg,rgba(2,7,10,.92) 0%,rgba(2,7,10,.72) 35%,rgba(2,7,10,.22) 78%),linear-gradient(0deg,rgba(2,7,10,.95) 0%,transparent 50%)}.hero-content{position:relative;z-index:2;max-width:740px;padding-top:100px}.hero-kicker{font:700 11px/1 Manrope;letter-spacing:.24em;margin-bottom:20px;color:#e8eef0}.hero h1{margin:0;font:800 clamp(58px,7.3vw,104px)/.88 Manrope;letter-spacing:-.075em}.hero h1 span{color:var(--yellow)}.hero-tagline{margin:24px 0 9px;font-size:17px;font-weight:500;letter-spacing:.01em}.hero-copy{max-width:630px;margin:0;color:#d0d7da;font-size:15px;line-height:1.55}.hero-buttons{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
@@ -94,7 +94,7 @@ footer{background:#050b10;padding:42px 4.2vw 24px;border-top:1px solid rgba(255,
   object-position:center;
   overflow:visible;
 }
-.footer-brand-icon{width:42px;height:42px;object-fit:contain;overflow:visible}
+.footer-brand-icon{width:42px;height:42px;display:block;flex:none;object-fit:contain}
 
 .hero{
   background:#061119;
@@ -237,7 +237,8 @@ footer{background:#040a0f}
 
 .hero-controls .dot.active{background:var(--yellow)}
 .desktop-nav a.active:after{background:var(--yellow)}
-.hero h1 span,.closing h2 em,.ask-inner h2 em{color:var(--yellow)}
+.hero h1 span{color:var(--pink)}
+.closing h2 em,.ask-inner h2 em{color:var(--yellow)}
 .welcome-play{color:#fff}
 .tap-intro{background:#061119}
 
@@ -267,3 +268,14 @@ footer{background:#040a0f}
   .welcome-copy h2{font-size:42px}
   .welcome-topics{grid-template-columns:repeat(2,1fr);row-gap:2px}
 }
+
+/* Final brand correction: use the approved logo artwork without altering its silhouette. */
+.site-brand-icon,
+.footer-brand-icon,
+.tap-intro-logo{
+  object-fit:contain;
+  object-position:center;
+  flex:none;
+}
+.tap-wordmark em{color:var(--pink)}
+.hero h1 span{color:var(--pink)}
