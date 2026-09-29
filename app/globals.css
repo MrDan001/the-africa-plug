@@ -69,3 +69,201 @@ footer{background:#050b10;padding:42px 4.2vw 24px;border-top:1px solid rgba(255,
   .footer-links a{font-size:12px;color:#a2abb0}
   .footer-bottom{margin-top:28px;padding-top:18px;align-items:flex-start;flex-direction:column;gap:13px}
 }
+
+
+/* --- Reference-site polish: deeper navy, restrained yellow, precise mobile spacing --- */
+:root{
+  --ink:#061119;
+  --ink-2:#0a171f;
+  --paper:#0a151d;
+  --white:#f6f8f8;
+  --muted:#9ba8ae;
+  --line:rgba(255,255,255,.12);
+  --yellow:#f6cf22;
+  --pink:#f80072;
+}
+
+.site-header{
+  background:rgba(4,10,15,.9);
+  border-bottom-color:rgba(255,255,255,.06);
+}
+.site-brand-icon{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  object-position:center;
+  overflow:visible;
+}
+.footer-brand-icon{width:42px;height:42px;object-fit:contain;overflow:visible}
+
+.hero{
+  background:#061119;
+}
+.hero-overlay{
+  background:
+    linear-gradient(90deg,rgba(1,7,11,.94) 0%,rgba(1,7,11,.7) 42%,rgba(1,7,11,.16) 82%),
+    linear-gradient(0deg,rgba(1,7,11,.97) 0%,transparent 56%);
+}
+.worlds-section{background:linear-gradient(180deg,#0b1821 0%,#07131b 100%)}
+.featured-section{background:#07131b}
+.playbook-copy{background:#112029}
+.ask-section{background:var(--yellow)}
+.access-section{background:#07131b}
+.service-grid{background:rgba(255,255,255,.1)}
+.service-grid article{background:#091821}
+.closing{background:#061119}
+footer{background:#040a0f}
+
+.welcome-section{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:72px;
+  align-items:center;
+  padding:78px 5.4vw;
+  background:#061119;
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.welcome-video-shell{
+  width:100%;
+}
+.welcome-video-poster{
+  position:relative;
+  min-height:420px;
+  aspect-ratio:16/10;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:5px;
+  border:1px solid rgba(255,255,255,.14);
+  background:
+    radial-gradient(circle at 50% 45%,rgba(246,207,34,.22),transparent 25%),
+    linear-gradient(135deg,#132731 0%,#071119 46%,#0a1d28 100%);
+}
+.welcome-video-poster:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(120deg,transparent 0 42%,rgba(255,255,255,.06) 42.5% 43%,transparent 43.5% 100%),
+    linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,.08));
+}
+.welcome-video-poster:after{
+  content:"THE AFRICA PLUG";
+  position:absolute;
+  left:28px;
+  bottom:26px;
+  font:800 12px/1 Manrope;
+  letter-spacing:.18em;
+  color:rgba(255,255,255,.78);
+}
+.welcome-video-badge{
+  position:absolute;
+  top:22px;
+  left:22px;
+  z-index:2;
+  padding:10px 14px;
+  border-radius:999px;
+  background:var(--pink);
+  color:#fff;
+  font:800 9px/1 Manrope;
+  letter-spacing:.12em;
+}
+.welcome-play{
+  position:relative;
+  z-index:2;
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  padding-left:4px;
+  background:var(--pink);
+  color:#fff;
+  font-size:25px;
+  box-shadow:0 12px 34px rgba(0,0,0,.32);
+}
+.welcome-duration{
+  position:absolute;
+  right:18px;
+  bottom:16px;
+  z-index:2;
+  padding:7px 9px;
+  border-radius:4px;
+  background:rgba(0,0,0,.68);
+  font:700 10px/1 Manrope;
+}
+.welcome-copy{max-width:620px}
+.welcome-eyebrow{
+  font:800 10px/1 Manrope;
+  letter-spacing:.19em;
+  color:#fff;
+}
+.welcome-eyebrow .eyebrow-line{margin-right:9px}
+.welcome-copy h2{
+  margin:18px 0 18px;
+  font:800 clamp(44px,5.3vw,74px)/.93 Manrope;
+  letter-spacing:-.075em;
+}
+.welcome-copy>p{
+  margin:0;
+  color:#b7c1c6;
+  font-size:14px;
+  line-height:1.6;
+}
+.welcome-note{
+  margin-top:13px !important;
+  color:#7f8b91 !important;
+  font-size:11px !important;
+}
+.welcome-topics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  margin-top:32px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.welcome-topics span{
+  padding:15px 12px 0 0;
+  color:#d4dbde;
+  font-size:11px;
+  font-weight:700;
+}
+.welcome-topics span::before{
+  content:"✦";
+  color:var(--yellow);
+  margin-right:8px;
+}
+
+.hero-controls .dot.active{background:var(--yellow)}
+.desktop-nav a.active:after{background:var(--yellow)}
+.hero h1 span,.closing h2 em,.ask-inner h2 em{color:var(--yellow)}
+.welcome-play{color:#fff}
+.tap-intro{background:#061119}
+
+/* A cleaner, complete logo symbol for every surface. */
+.tap-intro-logo{width:86px;height:86px;object-fit:contain;overflow:visible}
+.tap-intro-symbol{width:100px;height:100px}
+.tap-intro-ring{width:100px;height:100px}
+
+@media(max-width:850px){
+  .site-brand-icon{width:35px;height:35px}
+  .footer-brand-icon{width:38px;height:38px}
+  .welcome-section{
+    grid-template-columns:1fr;
+    gap:36px;
+    padding:58px 20px;
+  }
+  .welcome-video-poster{min-height:330px}
+  .welcome-copy h2{font-size:48px}
+}
+@media(max-width:560px){
+  .site-brand-icon{width:34px;height:34px}
+  .welcome-section{padding:48px 16px;gap:30px}
+  .welcome-video-poster{min-height:250px}
+  .welcome-video-badge{top:14px;left:14px;font-size:8px;padding:9px 11px}
+  .welcome-play{width:62px;height:62px;font-size:20px}
+  .welcome-duration{right:12px;bottom:12px}
+  .welcome-copy h2{font-size:42px}
+  .welcome-topics{grid-template-columns:repeat(2,1fr);row-gap:2px}
+}
