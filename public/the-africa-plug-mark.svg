@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="The Africa Plug">
-<rect width="1000" height="1000" fill="#000"/>
 <circle cx="500" cy="300" r="235" fill="none" stroke="#fff" stroke-width="10"/>
 <path d="M285 205 Q500 285 715 205 M285 395 Q500 315 715 395" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
 <path d="M500 65 Q405 155 405 300 Q405 445 500 535 M500 65 Q595 155 595 300 Q595 445 500 535" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
