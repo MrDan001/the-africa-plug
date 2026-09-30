@@ -5,7 +5,7 @@ const VIDEO_PATH = "homepage.mp4";
 
 export async function GET() {
   try {
-    const blob = await head(VIDEO_PATH, { access: "public", useCache: false });
+    const blob = await head(VIDEO_PATH);
     const url = new URL(blob.url);
     url.searchParams.set("v", blob.etag);
     return NextResponse.redirect(url, {
