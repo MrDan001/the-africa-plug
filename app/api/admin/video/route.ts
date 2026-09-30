@@ -21,7 +21,7 @@ export async function GET(request: Request) {
   if (!validSession(request)) return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
 
   try {
-    const blob = await head(VIDEO_PATH, { access: "public", useCache: false });
+    const blob = await head(VIDEO_PATH);
     return NextResponse.json({
       exists: true,
       name: VIDEO_PATH,
