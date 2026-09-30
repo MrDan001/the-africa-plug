@@ -9,6 +9,7 @@ export default function AdminPage() {
   const [preview, setPreview] = useState("");
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     fetch("/api/admin/video").then(r => { if (r.ok) setLoggedIn(true); });
@@ -40,13 +41,39 @@ export default function AdminPage() {
     if (!file) return setStatus("Choose an MP4 video first.");
     if (file.type !== "video/mp4") return setStatus("Only MP4 videos are supported.");
     if (file.size > 50 * 1024 * 1024) return setStatus("Video must be 50 MB or smaller.");
-    setBusy(true); setStatus("Publishing video…");
+    setBusy(true); setProgress(0); setStatus("Publishing video… 0%");
     const form = new FormData(); form.append("video", file);
-    const response = await fetch("/api/admin/video", { method: "POST", body: form });
-    const data = await response.json().catch(() => ({}));
+
+    const result = await new Promise<{ ok: boolean; data: any }>((resolve) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "/api/admin/video");
+
+      xhr.upload.onprogress = event => {
+        if (!event.lengthComputable) return;
+        // The browser can measure the upload itself. Keep 5% for the server-side publish/finalization.
+        const next = Math.min(95, Math.round((event.loaded / event.total) * 95));
+        setProgress(next);
+        setStatus(next < 95 ? `Publishing video… ${next}%` : "Finalizing publication… 95%");
+      };
+
+      xhr.onload = () => {
+        let data: any = {};
+        try { data = JSON.parse(xhr.responseText || "{}"); } catch {}
+        resolve({ ok: xhr.status >= 200 && xhr.status < 300, data });
+      };
+
+      xhr.onerror = () => resolve({ ok: false, data: { error: "Publish failed. Please check your connection and try again." } });
+      xhr.send(form);
+    });
+
+    if (result.ok) {
+      setProgress(100);
+      setStatus("Video published successfully — 100%");
+      setFile(null);
+    } else {
+      setStatus(result.data.error || "Publish failed.");
+    }
     setBusy(false);
-    setStatus(response.ok ? data.message : (data.error || "Publish failed."));
-    if (response.ok) setFile(null);
   }
 
   if (!loggedIn) return (
@@ -75,7 +102,12 @@ export default function AdminPage() {
           <span>{file ? (file.size / 1024 / 1024).toFixed(1) + " MB" : "Maximum 50 MB"}</span>
         </label>
         {preview && <video src={preview} controls muted playsInline style={styles.video} />}
-        <button style={styles.button} disabled={busy || !file}>{busy ? "Publishing…" : "Publish / Replace Video"}</button>
+        <button
+          style={busy ? { ...styles.button, ...styles.progressButton, background: `linear-gradient(to right, #f4d35e ${progress}%, #333 ${progress}%)` } : styles.button}
+          disabled={busy || !file}
+        >
+          {busy ? `Publishing… ${progress}%` : "Publish / Replace Video"}
+        </button>
         {status && <p style={status.startsWith("Video published") ? styles.success : styles.error}>{status}</p>}
       </form>
       <a href="/" style={styles.back}>← Back to homepage</a>
@@ -93,6 +125,7 @@ const styles: Record<string, React.CSSProperties> = {
   label:{fontSize:13,fontWeight:700},
   input:{width:"100%",boxSizing:"border-box",padding:"14px 16px",borderRadius:12,border:"1px solid #333",background:"#090909",color:"#fff",fontSize:16},
   button:{border:0,borderRadius:999,padding:"14px 20px",fontWeight:800,fontSize:15,cursor:"pointer",background:"#f4d35e",color:"#111"},
+  progressButton:{background:"#333",transition:"background .2s ease",color:"#111"},
   drop:{display:"grid",gap:7,padding:"28px 20px",border:"1px dashed #555",borderRadius:16,cursor:"pointer",textAlign:"center"},
   video:{width:"100%",maxHeight:360,borderRadius:14,background:"#000"},
   error:{margin:0,color:"#ff9d9d",fontSize:14,lineHeight:1.5},
