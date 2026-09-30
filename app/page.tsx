@@ -76,7 +76,7 @@ export default function Home(){
             aria-label="Welcome video"
             onCanPlay={(event)=>{ event.currentTarget.play().catch(()=>{}); }}
           >
-            <source src="/videos/homepage.mp4" type="video/mp4" />
+            <source src="/api/homepage-video" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
         </div>
