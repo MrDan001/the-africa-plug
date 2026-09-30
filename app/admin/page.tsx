@@ -1,5 +1,6 @@
 "use client";
 
+import { upload } from "@vercel/blob/client";
 import { useEffect, useState } from "react";
 
 export default function AdminPage() {
@@ -41,39 +42,32 @@ export default function AdminPage() {
     if (!file) return setStatus("Choose an MP4 video first.");
     if (file.type !== "video/mp4") return setStatus("Only MP4 videos are supported.");
     if (file.size > 50 * 1024 * 1024) return setStatus("Video must be 50 MB or smaller.");
-    setBusy(true); setProgress(0); setStatus("Publishing video… 0%");
-    const form = new FormData(); form.append("video", file);
 
-    const result = await new Promise<{ ok: boolean; data: any }>((resolve) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", "/api/admin/video");
+    setBusy(true);
+    setProgress(0);
+    setStatus("Preparing upload… 0%");
 
-      xhr.upload.onprogress = event => {
-        if (!event.lengthComputable) return;
-        // The browser can measure the upload itself. Keep 5% for the server-side publish/finalization.
-        const next = Math.min(95, Math.round((event.loaded / event.total) * 95));
-        setProgress(next);
-        setStatus(next < 95 ? `Publishing video… ${next}%` : "Finalizing publication… 95%");
-      };
+    try {
+      await upload("homepage.mp4", file, {
+        access: "public",
+        handleUploadUrl: "/api/admin/video",
+        multipart: true,
+        onUploadProgress: ({ percentage }) => {
+          const next = Math.min(99, Math.round(percentage));
+          setProgress(next);
+          setStatus(`Publishing video… ${next}%`);
+        },
+      });
 
-      xhr.onload = () => {
-        let data: any = {};
-        try { data = JSON.parse(xhr.responseText || "{}"); } catch {}
-        resolve({ ok: xhr.status >= 200 && xhr.status < 300, data });
-      };
-
-      xhr.onerror = () => resolve({ ok: false, data: { error: "Publish failed. Please check your connection and try again." } });
-      xhr.send(form);
-    });
-
-    if (result.ok) {
       setProgress(100);
       setStatus("Video published successfully — 100%");
       setFile(null);
-    } else {
-      setStatus(result.data.error || "Publish failed.");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Publish failed.";
+      setStatus(message);
+    } finally {
+      setBusy(false);
     }
-    setBusy(false);
   }
 
   if (!loggedIn) return (
