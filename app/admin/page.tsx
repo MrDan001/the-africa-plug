@@ -97,7 +97,7 @@ export default function AdminPage() {
         </label>
         {preview && <video src={preview} controls muted playsInline style={styles.video} />}
         <button
-          style={busy ? { ...styles.button, ...styles.progressButton, background: `linear-gradient(to right, #f4d35e ${progress}%, #333 ${progress}%)` } : styles.button}
+          style={busy ? { ...styles.button, ...styles.progressButton, background: `linear-gradient(to right, #f5036a ${progress}%, #333 ${progress}%)` } : styles.button}
           disabled={busy || !file}
         >
           {busy ? `Publishing… ${progress}%` : "Publish / Replace Video"}
@@ -110,15 +110,15 @@ export default function AdminPage() {
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  shell:{minHeight:"100vh",display:"grid",placeItems:"center",padding:"24px",background:"#0b0b0b",color:"#fff"},
-  card:{width:"min(680px,100%)",padding:"clamp(24px,5vw,52px)",border:"1px solid #292929",borderRadius:24,background:"#121212",boxShadow:"0 24px 80px rgba(0,0,0,.35)"},
+  shell:{minHeight:"100vh",display:"grid",placeItems:"center",padding:"24px",background:"#050505",color:"#fff"},
+  card:{width:"min(680px,100%)",padding:"clamp(24px,5vw,52px)",border:"1px solid #282828",borderRadius:24,background:"#101010",boxShadow:"0 24px 80px rgba(0,0,0,.35)"},
   eyebrow:{fontSize:12,letterSpacing:2,fontWeight:700,opacity:.65,marginBottom:14},
   title:{fontSize:"clamp(32px,6vw,56px)",lineHeight:1,margin:"0 0 14px"},
   muted:{color:"#aaa",lineHeight:1.6,margin:"0 0 28px"},
   form:{display:"grid",gap:14},
   label:{fontSize:13,fontWeight:700},
-  input:{width:"100%",boxSizing:"border-box",padding:"14px 16px",borderRadius:12,border:"1px solid #333",background:"#090909",color:"#fff",fontSize:16},
-  button:{border:0,borderRadius:999,padding:"14px 20px",fontWeight:800,fontSize:15,cursor:"pointer",background:"#f4d35e",color:"#111"},
+  input:{width:"100%",boxSizing:"border-box",padding:"14px 16px",borderRadius:12,border:"1px solid #333",background:"#080808",color:"#fff",fontSize:16},
+  button:{border:0,borderRadius:999,padding:"14px 20px",fontWeight:800,fontSize:15,cursor:"pointer",background:"#f5036a",color:"#111"},
   progressButton:{background:"#333",transition:"background .2s ease",color:"#111"},
   drop:{display:"grid",gap:7,padding:"28px 20px",border:"1px dashed #555",borderRadius:16,cursor:"pointer",textAlign:"center"},
   video:{width:"100%",maxHeight:360,borderRadius:14,background:"#000"},
