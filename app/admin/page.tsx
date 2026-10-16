@@ -4,31 +4,13 @@ import { upload } from "@vercel/blob/client";
 import { useEffect, useState } from "react";
 
 export default function AdminPage() {
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    fetch("/api/admin/video").then(r => { if (r.ok) setLoggedIn(true); });
-  }, []);
-
   useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
-
-  async function login(event: React.FormEvent) {
-    event.preventDefault();
-    setBusy(true); setStatus("");
-    const response = await fetch("/api/admin/login", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password })
-    });
-    const data = await response.json().catch(() => ({}));
-    setBusy(false);
-    if (!response.ok) return setStatus(data.error || "Login failed.");
-    setLoggedIn(true); setPassword(""); setStatus("");
-  }
 
   function choose(next: File | null) {
     if (preview) URL.revokeObjectURL(preview);
@@ -69,20 +51,6 @@ export default function AdminPage() {
       setBusy(false);
     }
   }
-
-  if (!loggedIn) return (
-    <main style={styles.shell}><section style={styles.card}>
-      <div style={styles.eyebrow}>THE AFRICA PLUG · ADMIN</div>
-      <h1 style={styles.title}>Homepage video</h1>
-      <p style={styles.muted}>Sign in to replace the welcome video shown on the homepage.</p>
-      <form onSubmit={login} style={styles.form}>
-        <label style={styles.label}>Admin password</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} style={styles.input} autoComplete="current-password" required />
-        <button style={styles.button} disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
-        {status && <p style={styles.error}>{status}</p>}
-      </form>
-    </section></main>
-  );
 
   return (
     <main style={styles.shell}><section style={styles.card}>
